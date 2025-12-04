@@ -1,0 +1,179 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(255, 255, 255);
+    font-family:Arial, Helvetica, sans-serif
+}
+
+
+/*//////////////////////////////////////////
+/////// BARRA DE NAVEGACION GENERAL ////////
+//////////////////////////////////////////*/
+.navbar{
+    background: linear-gradient(180deg, rgba(2, 19, 163, 0.9), rgba(2, 19, 163, 0.7));
+    width: 3vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.navbar:hover{
+    width: 10vw;
+}
+
+/*//////////////////////////////////////////
+/////////// CONTENEDOR DEL LOGO ////////////
+//////////////////////////////////////////*/
+.cntn-logo{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 15px;
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+
+        /*PARA ICONO DEL LOGO*/
+.cntn-logo i{
+    color: white;
+    font-size: 22px;
+    min-width: 40px;
+    transition: transform 0.3s ease;
+}
+
+.cntn-logo :hover i{
+    transform: scale(1.1);
+}
+
+        /*PARA EL SPAN(TEXTO) DEL LOGO*/
+.logo-text{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
+}
+
+.navbar:hover .texto-logo {
+    opacity: 1;
+}
+
+/*//////////////////////////////////////////
+/////// ESPACIO PARA LA NAVEGACIÓN /////////
+//////////////////////////////////////////*/
+.navigation{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    flex-grow: 1;
+    padding-top: 125px;
+    width: 100%;
+}
+
+.navigation li{
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+        /*PARA DARLE CARACTERISTICAS ESPECIFICAS A LOS ICONOS*/
+.navigation li:nth-child(1) i{
+    font-size: 27px;
+    padding-left: 4px;
+}
+
+.navigation li:nth-child(2) i{
+    font-size: 24px;
+    padding-right: 4px;
+}
+
+.navigation li:nth-child(3) i{
+    font-size: 25px;
+    padding-right:1.8px;
+}
+
+.navigation li:nth-child(4) i{
+    font-size: 22.5px;
+    padding-right: 2px;
+}
+
+
+.navigation li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+        /*PARA LOS ICONOS DE NAVEGACIÓN*/
+.navigation i{
+    color: white;
+    font-size: 22px;
+    min-width: 40px;
+}
+
+        /*PARA LOS TEXTOS DE NAVEGACIÓN*/
+.navigation-text{
+    color: white;
+    font-size: 15px;
+    margin-left: 10px;
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
+}
+
+.navigation:hover .navigation-text{
+    opacity: 1;
+}
+
+/*//////////////////////////////////////////
+//////// CONTENEDOR PARA LA CUENTA /////////
+//////////////////////////////////////////*/
+
+.account{
+    margin-top: auto;
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: back round-color 0.3s ease;
+}
+
+.account:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+}
+        /*PARA LOS ICONOS DE LA CUENTA*/
+.account i{
+    color: white;
+    font-size: 25px;
+    min-width: 40px;
+}
+
+        /*PARA EL TEXTO DE LA CUENTA*/
+.account-text{
+    color: white;
+    font-size: 16px;
+    margin-left: 10px;
+    white-space: nowrap;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.navbar:hover .account-text {
+    opacity: 1;
+}
