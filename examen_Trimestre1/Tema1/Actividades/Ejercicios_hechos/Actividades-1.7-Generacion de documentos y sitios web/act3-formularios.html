@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Pide lo que te apetece:</h1>
+
+    <p>Seleccine el número de hambuerguesas que desees:</p>
+
+    <ul>
+        <li>Hamburguesa completa:<input type="number"  min="0" max="10" ></li>
+        <li>Hamburguesa de pollo:<input type="number"  min="0" max="10"></li>
+        <li>Hamburguesa vegetariana:<input type="number"  min="0" max="10"></li>
+        <li>Hamburguesa dobel:<input type="number"  min="0" max="10"></li>
+    </ul>
+
+    <p>Escribe las modificaciones o preferencias sobre le pedido:</p>
+
+    <textarea name="modificaciones" id="modificaciones" rows="5" cols="25" placeholder="Si el pedido no es para ti dinoslo"></textarea>
+
+    <hr>
+
+    <h2>Datos de contacto</h2>
+
+    <form>
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre"><br>
+
+        <label for="apellidos">Apellidos:</label><br>
+        <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos"><br>
+
+        <label for="telefono">Teléfono:</label><br>
+        <input type="text" name="telefono" id="telefono" placeholder="Teléfono"><br>
+
+        <label for="email">Correo electrónico:</label><br>
+        <input type="text" name="email" id="email"><br>
+        
+        <label for="edad">¿Eres mayor de edad?</label>
+        <select>
+            <option value=""></option>
+            <option value="si">SÍ</option>
+            <option value="no">NO</option>
+        </select>
+
+        <hr>
+
+        <input type="checkbox">
+        <label for="notificaciones">Quiero recibir información sobre ofertas.</label><br>
+
+        <input type="checkbox">
+        <label for="condiciones">Acepto las condiciones de uso del servicio.</label>
+
+        <hr>
+
+        <button>Borrar</button>
+        <button>Aceptar</button>
+    </form>
+</body>
+</html>
