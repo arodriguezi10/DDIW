@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FYLIOS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!--BARRA LATERAL DE NAVEGACIÓN-->
+    <nav class="navbar">
+
+        <!--CONTENEDOR PARA EL LOGO-->
+        <div class="cntn-logo">
+            <i class="fa-solid fa-f"></i>
+            <span class="logo-text">FYLIOS</span>
+        </div>
+
+        <!--CONTENDOR PARA LAS OPCIONES DE NAVEGACION-->
+        <ul class="navigation">
+            <li>
+                <i class="fa-solid fa-person"></i>
+                <span class="navigation-text">Perfil</span>
+            </li>
+            <li>
+                <i class="fa-solid fa-address-book"></i>
+                <span class="navigation-text">Notas</span>
+            </li>
+            <li>
+                <i class="fa-solid fa-calendar"></i>
+                <span class="navigation-text">Calendario</span>
+            </li>
+            <li>
+                <i class="fa-solid fa-cloud"></i>
+                <span class="navigation-text">Guardados</span>
+            </li>
+        </ul>
+
+        <!--CONTENEDOR PARA CUENTA-->
+        <div class="account" >
+                <i class="fa-solid fa-circle-user"></i>
+                <span class="account-text"><a href="../tarea-final-t2/login.html">Cuenta</a></span>
+        </div>
+    </nav>
+
+    <div class="cntn-general">
+        
+        <!--CONTENERDOR 1: DE NIVEL-->
+        <div class="nivel">
+
+            <div class="cntn-text">
+                <h1 class="ts">¡Bienvenido de vuelta!</h1>
+                <p class="ts">Viernes, 5 de Diembre 2025</p>
+            </div>
+
+            <select name="select-level" id="select-level">
+                <option value="principiante">Principiante</option>
+                <option value="intermedio">Intermedio</option>
+                <option value="avanzado">Avanzado</option>
+            </select>
+
+        </div>
+
+        <!--CONTENEDOR 2: DE ACCIONES RAPIDAS-->
+        <div class="cntn-actions">
+
+            <div class="start-rutine">
+                <i class="fa-solid fa-play"></i>
+                <h3>Iniciar Entrenamiento</h3>
+                <p>Comienza tu rutina de hoy y registra tu progreso</p>
+            </div>
+
+            <div class="new-rutine">
+                <i class="fa-solid fa-plus"></i>
+                <h3>Nueva Rutina</h3>
+                <p>Crea una rutina personalizada a tu medida</p>
+            </div>
+
+            <div class="videos">
+                <i class="fa-solid fa-video"></i>
+                <h3>Video Tutoriales</h3>
+                <p>Aprende la técnica correcta de cada ejercicio</p>
+            </div>
+
+            <div class="download">
+                <i class="fa-solid fa-download"></i>
+                <h3>Exportar Datos</h3>
+                <p>Descarga tu historial en formato PDF</p>
+            </div>
+
+            <div class="hola">
+
+            </div>
+
+            <div class="dad">
+
+            </div>
+
+        </div>
+
+        <!--CONTENEDOR 3: DE ACCIONES RAPIDAS-->
+        <div class="cntn-recomends">
+
+            <div class="title">
+                <h2>
+                    <i class="fa-solid fa-fire"></i> 
+                    Rutinas Recomendadas
+                </h2>
+                <button class="btn-all">Ver Todas</button>
+            </div>
+
+            <div class="cntn-rutines">
+
+                <!--RUTINA PRINCIPIANTE-->
+                <div class="routine-card">
+
+                    <div class="routine-title">
+                        <span class="routine-level">Principiante</span>
+                    </div>
+
+                    <h4>Iniciación Full Body</h4>
+
+                    <div class="routine-information">
+                        <span>
+                            <i class="fa-solid fa-clock"></i> 
+                            45 min
+                        </span>
+                        <span>
+                            <i class="fa-solid fa-fire"></i> 
+                            3 días/semana
+                        </span>
+                        <span>
+                            <i class="fa-solid fa-chart-simple"></i> 
+                            8 ejercicios
+                        </span>
+                    </div>
+
+                    <div class="exercises">
+
+                        <div class="exercise">
+                            <i class="fa-solid fa-check"></i>
+                            <span>Sentadillas - 3x12</span>
+                        </div>
+                        
+                        <div class="exercise">
+                            <i class="fa-solid fa-check"></i>
+                            <span>Press de Banca - 3x10</span>
+                        </div>
+
+                        <div class="exercise">
+                            <i class="fa-solid fa-check"></i>
+                            <span>Peso Muerto - 3x10</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!--RUTINA INTERMEDIO-->
+                <div class="routine-card">
+
+                    <div class="routine-title">
+                        <span class="routine-level" style="background: #ed8936;">Intermedio</span>
+                    </div>
+
+                    <h4>Push-Pull-Legs</h4>
+
+                    <div class="routine-information">
+                        <span>
+                            <i class="fa-solid fa-clock"></i> 
+                            60 min
+                        </span>
+                        <span>
+                            <i class="fa-solid fa-fire"></i> 
+                            4 días/semana
+                        </span>
+                        <span>
+                            <i class="fa-solid fa-chart-simple"></i> 
+                            10 ejercicios
+                        </span>
+                    </div>
+
+                    <div class="exercises">
+
+                        <div class="exercise">
+                            <i class="fa-solid fa-check"></i>
+                            <span>Press Militar - 4x8</span>
+                        </div>
+
+                        <div class="exercise">
+                            <i class="fa-solid fa-check"></i>
+                            <span>Fondos - 3x12</span>
+                        </div>
+
+                        <div class="exercise">
+                            <i class="fa-solid fa-check"></i>
+                            <span>Aperturas - 3x15</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--RUTINA AVANZADO-->
+                <div class="routine-card">
+
+                    <div class="routine-title">
+                        <span class="routine-level" style="background: #f56565;">Avanzado</span>
+                    </div>
+
+                    <h4>Hipertrofia Avanzada</h4>
+
+                    <div class="routine-information">
+
+                        <span>
+                            <i class="fa-solid fa-clock"></i> 
+                            90 min
+                        </span>
+                        <span>
+                            <i class="fa-solid fa-fire"></i> 
+                            5 días/semana
+                        </span>
+                        <span>
+                            <i class="fa-solid fa-chart-simple"></i> 
+                            12 ejercicios
+                        </span>
+                    </div>
+
+                    <div class="exercises">
+
+                        <div class="exercise">
+                            <i class="fa-solid fa-check"></i>
+                            <span>Sentadilla Búlgara - 4x10</span>
+                        </div>
+
+                        <div class="exercise">
+                            <i class="fa-solid fa-check"></i>
+                            <span>Press Inclinado - 4x8</span>
+                        </div>
+
+                        <div class="exercise">
+                            <i class="fa-solid fa-check"></i>
+                            <span>RDL - 4x12</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--CONTENEDOR 4: TIPOS DE ENTRENAMINETOS-->
+        <div class="training-types">
+
+            <div class="title-types">
+                <h2>
+                    <i class="fa-regular fa-square-check"></i>
+                    Tipos de Entrenamiento
+                </h2>
+            </div>
+
+            <div class="types-grid">
+
+                <div class="type-card">
+                    <i class="#"></i>
+                    <span>Gimnasio</span>
+                </div>
+
+                <div class="type-card">
+                    <i class="#"></i>
+                    <span>Cardio</span>
+                </div>
+
+                <div class="type-card">
+                    <i class="#"></i>
+                    <span>Piscina</span>
+                </div>
+
+                <div class="type-card">
+                    <i class="#"></i>
+                    <span>Yoga</span>
+                </div>
+
+                <div class="type-card">
+                    <i class="#"></i>
+                    <span>Ciclismo</span>
+                </div>
+
+                <div class="type-card">
+                    <i class="#"></i>
+                    <span>Híbrido</span>
+                </div>
+
+            </div>
+            
+        </div>
+
+        <!--CONTENEDOR 4: TIPOS DE ENTRENAMINETOS-->
+        <div class="calendar-section">
+            
+            <div class="calendar-header">
+                <h2>
+                    <i class="fa-regular fa-calendar"></i>
+                    Tu Calendario de Entrenamientos
+                </h2>
+                <button class="btn-month">Este Mes</button>
+            </div>
+
+            <div class="calendar-grid">
+                
+                <div class="day-card">
+                    <span class="day-number">1</span>
+                    <span class="day-name">LUN</span>
+                </div>
+
+                <div class="day-card completed">
+                    <span class="day-number">2</span>
+                    <span class="day-name">MAR</span>
+                </div>
+
+                <div class="day-card completed">
+                    <span class="day-number">3</span>
+                    <span class="day-name">MIÉ</span>
+                </div>
+
+                <div class="day-card">
+                    <span class="day-number">4</span>
+                    <span class="day-name">JUE</span>
+                </div>
+
+                <div class="day-card current">
+                    <span class="day-number">5</span>
+                    <span class="day-name">VIE</span>
+                </div>
+
+                <div class="day-card">
+                    <span class="day-number">6</span>
+                    <span class="day-name">SÁB</span>
+                </div>
+
+                <div class="day-card">
+                    <span class="day-number">7</span>
+                    <span class="day-name">DOM</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>
