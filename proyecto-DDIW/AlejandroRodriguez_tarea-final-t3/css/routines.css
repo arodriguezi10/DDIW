@@ -163,24 +163,34 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
 
 
 /* =========================================
-   DESPLEGABLE DE PERFIL (Dropdown)
+   DESPLEGABLE DE PERFIL
    ========================================= */
-
-/* Contenedor relativo para posicionar el menú */
 .sidebar__user-group {
     position: relative;
     display: flex;
     justify-content: center;
+    flex: 1 1 0;
+    min-width: 2.75rem;
 }
 
-/* Diseño del Menú Desplegable */
-.dropdown-menu {
+.sidebar__user-group .sidebar__link--user {
+    width: 100%;
+}
+
+button.sidebar__link--user {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font: inherit;
+    text-align: center;
+}
+
+.sidebar-dropdown {
     position: absolute;
-    /* Aparece flotando por encima del botón */
-    bottom: calc(100% + 15px); 
-    right: -10px; /* Alineado para que no se salga de la pantalla en móvil */
+    bottom: calc(100% + 15px);
+    right: -10px;
     min-width: 200px;
-    background-color: var(--color-navbar-bg); /* Mismo color oscuro que el Navbar */
+    background-color: var(--color-navbar-bg);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: var(--radius-lg);
     box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.4);
@@ -188,16 +198,14 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
-    
-    /* Animación de entrada inicial (oculto y desplazado hacia abajo) */
     opacity: 0;
     visibility: hidden;
     transform: translateY(10px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1000;
+    z-index: 1100;
+    pointer-events: none;
 }
 
-/* Área invisible para que el hover no se corte al mover el ratón hacia el menú */
 .sidebar__user-group::before {
     content: '';
     position: absolute;
@@ -207,15 +215,23 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
     height: 20px;
 }
 
-.sidebar__user-group:hover .dropdown-menu,
-.sidebar__user-group:focus-within .dropdown-menu {
+.sidebar__user-group:hover .sidebar-dropdown,
+.sidebar__user-group:focus-within .sidebar-dropdown,
+.sidebar__user-group.is-open .sidebar-dropdown {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+    pointer-events: auto;
 }
 
-/* Diseño de los elementos del menú */
-.dropdown-item {
+.sidebar__user-group:hover > .sidebar__link--user,
+.sidebar__user-group:focus-within > .sidebar__link--user,
+.sidebar__user-group.is-open > .sidebar__link--user {
+    color: var(--color-navbar-text);
+    background-color: rgba(255, 255, 255, 0.07);
+}
+
+.sidebar-dropdown__item {
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -229,34 +245,46 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
     text-decoration: none;
 }
 
-/* Color y tamaño fijo para los iconos del desplegable */
-.dropdown-item i {
-    font-size: 1.1rem;
-    width: 1.25rem;
-    text-align: center;
-    color: inherit;
-}
-
-.dropdown-item:hover {
+.sidebar-dropdown__item:hover,
+.sidebar-dropdown__item:focus-visible {
     background-color: rgba(255, 255, 255, 0.08);
     color: var(--color-navbar-text);
+    text-decoration: none;
 }
 
-/* Separador elegante */
-.dropdown-divider {
+.sidebar-dropdown__divider {
     height: 1px;
     background-color: rgba(255, 255, 255, 0.1);
     margin: 0.25rem 0;
 }
 
-/* Botón de Peligro / Cerrar sesión */
-.dropdown-item--danger {
+.sidebar-dropdown__item--danger {
     color: var(--color-red);
 }
 
-.dropdown-item--danger:hover {
+.sidebar-dropdown__item--danger:hover,
+.sidebar-dropdown__item--danger:focus-visible {
     background-color: rgba(238, 93, 80, 0.1);
     color: var(--color-red);
+}
+
+@media (max-width: 1023px) {
+    .sidebar__nav:has(.sidebar__user-group:hover),
+    .sidebar__nav:has(.sidebar__user-group:focus-within),
+    .sidebar__nav:has(.sidebar__user-group.is-open) {
+        overflow: visible;
+    }
+
+    .sidebar__user-group.is-open .sidebar-dropdown,
+    .sidebar__user-group:hover .sidebar-dropdown,
+    .sidebar__user-group:focus-within .sidebar-dropdown {
+        position: fixed;
+        right: 0.75rem;
+        bottom: calc(
+            var(--navbar-mobile-height) + env(safe-area-inset-bottom, 0px) + 0.35rem
+        );
+        left: auto;
+    }
 }
 
 /* -------------------------------------
@@ -732,6 +760,10 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
         padding-right: 0.25rem;
     }
 
+    .sidebar__user-group {
+        min-width: 2.5rem;
+    }
+
     .sidebar__link {
         font-size: 0.625rem;
         min-width: 2.5rem;
@@ -750,6 +782,10 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
 @media (max-width: 380px) {
     .sidebar__link span {
         display: none;
+    }
+
+    .sidebar__user-group {
+        min-width: 2.65rem;
     }
 
     .sidebar__link {
@@ -858,12 +894,28 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
     }
 
     .sidebar__user-group {
+        flex: none;
+        min-width: auto;
         margin-top: auto;
         width: 100%;
     }
-    
-    .sidebar__user-group .sidebar__link {
+
+    .sidebar__user-group .sidebar__link--user {
         width: 100%;
+    }
+
+    .sidebar__user-group:hover > .sidebar__link--user,
+    .sidebar__user-group:focus-within > .sidebar__link--user,
+    .sidebar__user-group.is-open > .sidebar__link--user {
+        background-color: rgba(255, 255, 255, 0.05);
+        color: var(--color-navbar-text);
+    }
+
+    .sidebar-dropdown {
+        right: auto;
+        left: 0;
+        width: 100%;
+        bottom: calc(100% + 5px);
     }
 
     /* -------------------------------------

@@ -67,15 +67,35 @@
             </article>
 
           <div class="sidebar__user-group">
-    <a href="profile.html" class="sidebar__link sidebar__link--user">
-      <i class="fa-solid fa-user"></i> <span data-i18n="profile">Perfil</span>
-    </a>
-    <div class="dropdown-menu">
-      <a href="profile.html" class="dropdown-item">Datos personales</a>
-      <div class="dropdown-divider"></div>
-      <a href="login.html" class="dropdown-item dropdown-item--danger">Cerrar sesión</a>
-    </div>
-  </div>
+            <button
+              type="button"
+              class="sidebar__link sidebar__link--user"
+              id="profile-menu-trigger"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="profile-menu"
+            >
+              <i class="fa-solid fa-user"></i>
+              <span data-i18n="profile">Perfil</span>
+            </button>
+            <div class="sidebar-dropdown" id="profile-menu" role="menu">
+              <a
+                href="profile.html"
+                class="sidebar-dropdown__item"
+                role="menuitem"
+                data-i18n="personalData"
+                >Datos personales</a
+              >
+              <div class="sidebar-dropdown__divider" role="separator"></div>
+              <a
+                href="login.html"
+                class="sidebar-dropdown__item sidebar-dropdown__item--danger"
+                role="menuitem"
+                data-i18n="logout"
+                >Cerrar sesión</a
+              >
+            </div>
+          </div>
           <div class="sidebar__license" style="margin-top: 1rem; text-align: center; font-size: 0.65rem; color: var(--color-navbar-text-low); padding: 0 1rem;">
             <a href="https://github.com/arodriguezi10/DDIW/tree/main/proyecto-DDIW/tarea-final-t2-v2">FYLIOS</a> © 2026 by 
             <a href="https://github.com/arodriguezi10">Alejandro</a> is licensed under 
@@ -398,6 +418,30 @@
         const routineCards = document.querySelectorAll(".routine-card");
         const languageSelect = document.getElementById("language-select");
         const htmlElement = document.documentElement;
+        const profileGroup = document.querySelector(".sidebar__user-group");
+        const profileTrigger = document.getElementById("profile-menu-trigger");
+        const mobileNavQuery = window.matchMedia("(max-width: 1023px)");
+
+        function setProfileMenuOpen(open) {
+          if (!profileGroup || !profileTrigger) return;
+          profileGroup.classList.toggle("is-open", open);
+          profileTrigger.setAttribute("aria-expanded", open ? "true" : "false");
+        }
+
+        profileTrigger?.addEventListener("click", (event) => {
+          event.preventDefault();
+          if (mobileNavQuery.matches) {
+            setProfileMenuOpen(!profileGroup.classList.contains("is-open"));
+          }
+        });
+
+        document.addEventListener("click", (event) => {
+          if (profileGroup && !profileGroup.contains(event.target)) {
+            setProfileMenuOpen(false);
+          }
+        });
+
+        mobileNavQuery.addEventListener("change", () => setProfileMenuOpen(false));
 
         // 1. Buscador (Funcionalidad nativa conservada)
         searchInput.addEventListener("input", () => {
