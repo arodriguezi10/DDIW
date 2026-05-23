@@ -1,0 +1,104 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: red;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 800px;
+}
+
+th, td {
+    border: 2px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+th:not(:first-child)::first-letter {
+    font-size: 2em;
+}
+
+td:first-child {
+    background-color: green;
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(3) td {
+    background-color: yellow;
+    font-weight: bold;
+}
+
+tr:nth-child(3) td:first-child {
+    background-color: green;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: green;
+}
+
+a:visited {
+    color: red;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+td:nth-child(6):hover {
+    font-size: 2em;
+    transition: font-size 0.3s;
+}
+
+.formulario {
+    max-width: 400px;
+    margin: 30px auto;
+}
+
+.campo {
+    margin: 15px 0;
+}
+
+label {
+    font-weight: normal;
+    font-size: 16px;
+}
+
+input[type="email"] {
+    padding: 8px;
+    width: 300px;
+    font-size: 14px;
+}
+
+button {
+    padding: 8px 16px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+label[for="email"]::after {
+    content: "*";
+    color: red;
+    font-weight: bold;
+}

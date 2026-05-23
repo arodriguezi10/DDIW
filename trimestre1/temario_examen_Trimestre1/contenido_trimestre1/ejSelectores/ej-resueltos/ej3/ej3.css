@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+li {
+    margin: 10px 0;
+}
+
+
+a:link {
+    color: red;
+    text-decoration: none;
+}
+
+
+a:visited {
+    color: darkgreen;
+    text-decoration: none;
+}
+
+
+a:hover {
+    color: white;
+    background-color: red;
+    text-decoration: underline;
+}
+
+
+a:focus {
+    color: blue;
+    text-decoration: underline;
+}
+
+
+a:active {
+    color: orange;
+    text-decoration: none;
+}

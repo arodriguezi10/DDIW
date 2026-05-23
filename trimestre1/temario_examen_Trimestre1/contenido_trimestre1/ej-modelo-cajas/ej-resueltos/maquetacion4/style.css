@@ -1,0 +1,48 @@
+body {
+    margin: 0;      
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+}
+
+#cabecera {
+    background-color: red;  
+    padding: 20px;          
+    font-size: 1.5em;       
+    margin-bottom: 10px;    
+}
+
+#lateral {
+    float: right;           
+    width: 25%;             
+    background-color: gray; 
+    padding: 10px;          
+    box-sizing: border-box; 
+}
+
+#lateral ul {
+    padding-left: 20px;    
+}
+
+#lateral a {
+    color: blue;            
+    text-decoration: underline;
+}
+
+
+#central {
+    margin-right: 27%;      
+    padding: 10px;
+}
+
+#central h2 {
+    margin-top: 0;       
+}
+
+#pie {
+    clear: both;            
+    background-color: green;
+    text-align: center;     
+    padding: 5px;
+    color: black;
+    width: 100%;
+    margin-top: 20px;       
+}

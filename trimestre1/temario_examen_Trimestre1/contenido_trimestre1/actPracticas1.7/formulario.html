@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La hamburguesería</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-left: 0;
+            margin-right: auto;
+            width: 100%;
+            max-width: 600px;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 1px solid #bbb;
+            padding-bottom: 10px;
+            text-align: left;
+        }
+        .section {
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px 0;
+            color: #333;
+            text-align: left;
+        }
+        input[type="number"],
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 45%;
+            padding: 8px;
+            border: 1px solid #bbb;
+            border-radius: 4px;
+            box-sizing: border-box;
+            float: none;
+        }
+        input[type="number"] {
+            width: 80px;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 60px;
+            font-family: Arial, sans-serif;
+            width: 45%;
+        }
+        .checkbox-group {
+            margin: 15px 0;
+            text-align: left;
+        }
+        .checkbox-group label {
+            display: inline;
+            margin-left: 5px;
+        }
+        .buttons {
+            margin-top: 20px;
+            text-align: left;
+        }
+        button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            border: 1px solid #333;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #e0e0e0;
+        }
+        .burger-list {
+            list-style: none;
+            padding: 0;
+        }
+        .burger-list li {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Pide lo que te apetece:</h2>
+        
+        <div class="section">
+            <p>Selecciona el número de hamburguesas que desees:</p>
+            <ul class="burger-list">
+                <li>
+                    <label>
+                        Hamburguesa completa:
+                        <input type="number" id="completa" name="completa" value="0" min="0" max="10">
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        Hamburguesa de pollo:
+                        <input type="number" id="pollo" name="pollo" value="0" min="0" max="10">
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        Hamburguesa vegetariana:
+                        <input type="number" id="vegetariana" name="vegetariana" value="0" min="0" max="10">
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        Hamburguesa doble:
+                        <input type="number" id="doble" name="doble" value="0" min="0" max="10">
+                    </label>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <label for="preferencias">Escribe las modificaciones o preferencias sobre el pedido:</label>
+            <textarea id="preferencias" name="preferencias" placeholder="Si el pepino no es para ti
+dínoslo."></textarea>
+        </div>
+
+        <h2>Datos de contacto</h2>
+        
+        <div class="section">
+            <label for="nombre">Nombre: <span style="color: red;">*</span></label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="apellidos">Apellidos: <span style="color: red;">*</span></label>
+            <input type="text" id="apellidos" name="apellidos" required>
+
+            <label for="telefono">Teléfono: <span style="color: red;">*</span></label>
+            <input type="tel" id="telefono" name="telefono" required>
+
+            <label for="email">Correo electrónico: <span style="color: red;">*</span></label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="edad">¿Eres mayor de edad? <span style="color: red;">*</span></label>
+            <select id="edad" name="edad" required>
+                <option value="">Seleccione...</option>
+                <option value="si">Sí</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="ofertas" name="ofertas" checked>
+            <label for="ofertas">Quiero recibir información sobre ofertas.</label>
+        </div>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="condiciones" name="condiciones" required>
+            <label for="condiciones">Acepto las condiciones de uso del servicio. <span style="color: red;">*</span></label>
+        </div>
+
+        <div class="buttons">
+            <button type="reset">Borrar</button>
+            <button type="submit">Aceptar</button>
+        </div>
+    </div>
+</body>
+</html>

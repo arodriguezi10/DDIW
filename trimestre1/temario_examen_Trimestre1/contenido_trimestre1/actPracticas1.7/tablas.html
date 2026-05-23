@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad2.html</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: white;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        .italic {
+            font-style: italic;
+        }
+        h2 {
+            text-align: center;
+            font-size: 16px;
+            margin: 20px 0 10px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+            font-size: 12px;
+            border: 4px double #000;
+        }
+        th, td {
+            border: 2px double #000;
+            padding: 4px;
+            text-align: center;
+        }
+        th {
+            font-weight: bold;
+        }
+        .note {
+            font-size: 11px;
+            font-style: italic;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .prices-title {
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        ul {
+            font-size: 13px;
+            margin-left: 20px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <h1>Horario de trenes de CC a Mérida</h1>
+    <p class="italic">Desde la estación de tren, tomar el tren "Dirección Mérida".</p>
+    <p class="italic">Fecha de la última actualización 30/08/2023.</p>
+    
+    <h2>HORARIO</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Hora</th>
+                <th>Estación de Cáceres</th>
+                <th>Estación de Cáceres</th>
+                <th>Mérida</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="12">Hora de salida</td>
+                <td>9.00h</td>
+                <td>9.04h</td>
+                <td>9.30h</td>
+            </tr>
+            <tr>
+                <td>9.30h</td>
+                <td>9.40h</td>
+                <td>10.00h</td>
+            </tr>
+            <tr>
+                <td>10.00h</td>
+                <td>10.10h</td>
+                <td>10.30h</td>
+            </tr>
+            <tr>
+                <td>10.30h*</td>
+                <td>10.40h*</td>
+                <td>11.00h*</td>
+            </tr>
+            <tr>
+                <td>11.00h</td>
+                <td>11.10h</td>
+                <td>11.30h</td>
+            </tr>
+            <tr>
+                <td>11.30h</td>
+                <td>11.40h</td>
+                <td>12.00h</td>
+            </tr>
+            <tr>
+                <td>12.00h</td>
+                <td>12.10h</td>
+                <td>12.30h</td>
+            </tr>
+            <tr>
+                <td>12.30h*</td>
+                <td>12.40h*</td>
+                <td>13.00h*</td>
+            </tr>
+            <tr>
+                <td>13.00h</td>
+                <td>13.10h</td>
+                <td>13.30h</td>
+            </tr>
+            <tr>
+                <td>13.30h</td>
+                <td>13.40h</td>
+                <td>14.00h</td>
+            </tr>
+            <tr>
+                <td>14.00h</td>
+                <td>14.10h</td>
+                <td>14.30h</td>
+            </tr>
+            <tr>
+                <td>14.30h</td>
+                <td>14.40h</td>
+                <td>15.00h</td>
+            </tr>
+
+            <tr>
+                <td colspan="4" class="note" style="text-align:left;">*No circula los domingos ni festivos.</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    
+    <p class="prices-title">Precios:</p>
+    <ul>
+        <li>El precio del trayecto es el mismo independientemente de la estación desde donde se coja el tren.</li>
+        <li>El precio del trayecto los domingos y festivos es un 10% más caro.</li>
+    </ul>
+</body>
+</html>

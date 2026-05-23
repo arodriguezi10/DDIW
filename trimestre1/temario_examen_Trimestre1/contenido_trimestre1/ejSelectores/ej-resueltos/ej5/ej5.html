@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horario de Clases</title>
+    <link rel="stylesheet" href="ej5.css" />
+</head>
+
+<body>
+    <h1>HORARIO DE CLASE CURSO 2022-23 IES ÁGORA</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Horas</th>
+                <th>Lunes</th>
+                <th>Martes</th>
+                <th>Miércoles</th>
+                <th>Jueves</th>
+                <th>Viernes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>8:00</td>
+                <td rowspan="2">Matemáticas</td>
+                <td>Lengua</td>
+                <td>Inglés</td>
+                <td>Ciencias</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>9:00</td>
+                <td>Historia</td>
+                <td>Ciencias</td>
+                <td>Matemáticas</td>
+                <td>Lengua</td>
+            </tr>
+            <tr>
+                <td>10:00</td>
+                <td colspan="5">RECREO</td>
+            </tr>
+            <tr>
+                <td>10:30</td>
+                <td>Inglés</td>
+                <td rowspan="2">Ciencias</td>
+                <td>Matemáticas</td>
+                <td>Lengua</td>
+                <td>Historia</td>
+            </tr>
+            <tr>
+                <td>11:30</td>
+                <td>Historia</td>
+                <td>Ciencias</td>
+                <td>Matemáticas</td>
+                <td>Inglés</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="formulario">
+        <div class="campo">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Inserte email del destinatario">
+        </div>
+        <button type="button">Enviar Horario</button>
+    </div>
+</body>
+
+</html>

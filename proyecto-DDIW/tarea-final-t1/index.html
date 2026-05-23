@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descubre Cáceres - Portal de Turismo Cultural</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333333;
+            background-color: #F9F9F9;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 600;
+            color: #333333;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: #333333;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 26px;
+            font-weight: 600;
+            color: #333333;
+            margin-bottom: 0.5rem;
+        }
+
+        h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #333333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header {
+            background-color: #FFFFFF;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo h1 {
+            font-size: 32px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333333;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #FF7F50;
+        }
+
+        .sitemap-link {
+            color: #468284 !important;
+        }
+
+        .language-selector select {
+            padding: 0.5rem 1rem;
+            border: 2px solid #EEEEEE;
+            border-radius: 8px;
+            background-color: #FFFFFF;
+            font-size: 14px;
+            cursor: pointer;
+            color: #333333;
+        }
+
+        .language-selector select:focus {
+            outline: none;
+            border-color: #468284;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #FF7F50 0%, #468284 100%);
+            color: #FFFFFF;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            color: #FFFFFF;
+            font-size: 48px;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 2rem;
+            color: #EEEEEE;
+        }
+
+        .search-bar input {
+            width: 100%;
+            max-width: 600px;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            background-color: #FFFFFF;
+            color: #333333;
+        }
+
+        .search-bar input::placeholder {
+            color: #999;
+        }
+
+        .search-bar input:focus {
+            outline: 3px solid #5CE371;
+        }
+
+        .my-list-badge {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #FF7F50;
+            color: #FFFFFF;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            cursor: pointer;
+            z-index: 999;
+        }
+
+        main {
+            padding: 3rem 0;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        section p {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .resource-card {
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .resource-card-image {
+            background-color: #EBE4D5;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+
+        .resource-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .resource-card-content {
+            padding: 1.5rem;
+        }
+
+        .resource-card-content h3 {
+            font-size: 20px;
+            margin-bottom: 0.75rem;
+        }
+
+        .resource-card-content p {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 14px;
+        }
+
+        button, .add-to-list-btn {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .add-to-list-btn {
+            background-color: #FF7F50;
+            color: #FFFFFF;
+            width: 100%;
+        }
+
+        .add-to-list-btn:hover {
+            background-color: #FF6347;
+        }
+
+        .add-to-list-btn:active {
+            background-color: #CC5240;
+        }
+
+        .add-to-list-btn:disabled {
+            background-color: #CCC;
+            cursor: not-allowed;
+        }
+
+        .contact-info {
+            background-color: #FFFFFF;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-grid h4 {
+            font-size: 18px;
+            margin-bottom: 0.5rem;
+            color: #468284;
+        }
+
+        form {
+            background-color: #FFFFFF;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        input, textarea, select {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            padding: 0.75rem 1rem;
+            border: 2px solid #EEEEEE;
+            border-radius: 8px;
+            background-color: #FFFFFF;
+            color: #333333;
+            transition: border-color 0.3s;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #999;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #468284;
+        }
+
+        input:disabled, textarea:disabled {
+            background-color: #CCC;
+            color: #666;
+            cursor: not-allowed;
+        }
+
+        form button[type="submit"] {
+            background-color: #FF7F50;
+            color: #FFFFFF;
+            margin-top: 1rem;
+        }
+
+        form button[type="submit"]:hover {
+            background-color: #FF6347;
+        }
+
+        footer {
+            background-color: #333333;
+            color: #FFFFFF;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: #EEEEEE;
+            margin: 0.5rem 0;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .hero h2 {
+                font-size: 32px;
+            }
+
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <h1 id="logo-text">🏛️ Descubre Cáceres</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#inicio" data-i18n="nav-home">Inicio</a></li>
+                    <li><a href="#arquitectura" data-i18n="nav-architecture">Arquitectura</a></li>
+                    <li><a href="#naturaleza" data-i18n="nav-nature">Naturaleza</a></li>
+                    <li><a href="#cultura" data-i18n="nav-culture">Cultura</a></li>
+                    <li><a href="#actividades" data-i18n="nav-activities">Actividades</a></li>
+                    <li><a href="#contacto" data-i18n="nav-contact">Contacto</a></li>
+                    <li><a href="#mapa-sitio" class="sitemap-link" data-i18n="nav-sitemap">Mapa del Sitio</a></li>
+                </ul>
+                <div class="language-selector">
+                    <select id="language" onchange="changeLanguage(this.value)">
+                        <option value="es">🇪🇸 Español</option>
+                        <option value="en">🇬🇧 English</option>
+                        <option value="fr">🇫🇷 Français</option>
+                        <option value="de">🇩🇪 Deutsch</option>
+                        <option value="pt">🇵🇹 Português</option>
+                    </select>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2 data-i18n="hero-title">Explora la Ciudad Patrimonio de la Humanidad</h2>
+            <p data-i18n="hero-subtitle">Descubre el Casco Antiguo, la naturaleza extremeña y la cultura cacereña</p>
+            <div class="search-bar">
+                <input type="search" id="search-input" data-i18n-placeholder="search-placeholder" placeholder="🔍 Buscar por nombre, categoría, ubicación...">
+            </div>
+        </div>
+    </section>
+
+    <div class="my-list-badge" title="Mi lista personalizada">
+        <span id="list-count">0</span>
+    </div>
+
+    <main class="container">
+        <section id="arquitectura">
+            <h2 data-i18n="section-architecture-title">🏛️ Patrimonio Arquitectónico</h2>
+            <p data-i18n="section-architecture-desc">Descubre la Ciudad Monumental declarada Patrimonio de la Humanidad por la UNESCO</p>
+            
+            <div class="resource-grid">
+                <article class="resource-card">
+                    <div class="resource-card-image">
+                        <img src="imagenes/plazaMayor.webp" alt="Plaza Mayor de Cáceres" style="width:100%; height:100%; object-fit: cover;">
+                    </div>
+                    <div class="resource-card-content">
+                        <h3 data-i18n="place-plaza-mayor">Plaza Mayor</h3>
+                        <p data-i18n="place-plaza-mayor-desc">Corazón de la ciudad con los Arcos de la Estrella y Torre de Bujaco...</p>
+                        <button class="add-to-list-btn" data-i18n="btn-add">➕ Añadir a mi lista</button>
+                    </div>
+                </article>
+
+                <article class="resource-card">
+                    <div class="resource-card-image">
+                        <img src="imagenes/concatedral-de-santa-maria.webp" alt="Concatedral de Santa María" style="width:100%; height:100%; object-fit: cover;">
+                    </div>
+                    <div class="resource-card-content">
+                        <h3 data-i18n="place-cathedral">Concatedral de Santa María</h3>
+                        <p data-i18n="place-cathedral-desc">Catedral del siglo XIII con impresionante arquitectura gótica...</p>
+                        <button class="add-to-list-btn" data-i18n="btn-add">➕ Añadir a mi lista</button>
+                    </div>
+                </article>
+
+                <article class="resource-card">
+                    <div class="resource-card-image">
+                        <img src="imagenes/palaciodelasVeletas.webp" alt="Palacio de las Veletas" style="width:100%; height:100%; object-fit: cover;">
+                    </div>
+                    <div class="resource-card-content">
+                        <h3 data-i18n="place-palace">Palacio de las Veletas</h3>
+                        <p data-i18n="place-palace-desc">Sede del Museo de Cáceres con aljibe almohade del siglo XII...</p>
+                        <button class="add-to-list-btn" data-i18n="btn-add">➕ Añadir a mi lista</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="naturaleza">
+            <h2 data-i18n="section-nature-title">🌳 Espacios Naturales</h2>
+            <p data-i18n="section-nature-desc">Explora los parques naturales y entornos naturales de Cáceres</p>
+            
+            <div class="resource-grid">
+                <article class="resource-card">
+                    <div class="resource-card-image">
+                        <img src="imagenes/monfrague.webp" alt="Parque Nacional de Monfragüe" style="width:100%; height:100%; object-fit: cover;">
+                    </div>
+                    <div class="resource-card-content">
+                        <h3 data-i18n="place-monfrague">Parque Nacional de Monfragüe</h3>
+                        <p data-i18n="place-monfrague-desc">Reserva de la biosfera con increíble fauna y flora mediterránea...</p>
+                        <button class="add-to-list-btn" data-i18n="btn-add">➕ Añadir a mi lista</button>
+                    </div>
+                </article>
+
+                <article class="resource-card">
+                    <div class="resource-card-image">
+                        <img src="imagenes/parquedelPrincipe.webp" alt="Parque del Príncipe" style="width:100%; height:100%; object-fit: cover;">
+                    </div>
+                    <div class="resource-card-content">
+                        <h3 data-i18n="place-park">Parque del Príncipe</h3>
+                        <p data-i18n="place-park-desc">Pulmón verde de la ciudad con zonas de paseo y recreo...</p>
+                        <button class="add-to-list-btn" data-i18n="btn-add">➕ Añadir a mi lista</button>
+                    </div>
+                </article>
+
+                <article class="resource-card">
+                    <div class="resource-card-image">
+                        <img src="imagenes/riberadelMarco.webp" alt="Ribera del Marco" style="width:100%; height:100%; object-fit: cover;">
+                    </div>
+                    <div class="resource-card-content">
+                        <h3 data-i18n="place-river">Ribera del Marco</h3>
+                        <p data-i18n="place-river-desc">Senda natural perfecta para senderismo y observación de aves...</p>
+                        <button class="add-to-list-btn" data-i18n="btn-add">➕ Añadir a mi lista</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="cultura">
+            <h2 data-i18n="section-culture-title">🎭 Espacios Culturales</h2>
+            <p data-i18n="section-culture-desc">Museos, centros culturales y galerías de arte cacereñas</p>
+            
+            <div class="resource-grid">
+                <article class="resource-card">
+                    <div class="resource-card-image">
+                        <img src="imagenes/museo.webp" alt="Museo de Cáceres" style="width:100%; height:100%; object-fit: cover;">
+                    </div>
+                    <div class="resource-card-content">
+                        <h3 data-i18n="place-museum">Museo de Cáceres</h3>
+                        <p data-i18n="place-museum-desc">Colección arqueológica, etnográfica y de bellas artes...</p>
+                        <button class="add-to-list-btn" data-i18n="btn-add">➕ Añadir a mi lista</button>
+                    </div>
+                </article>
+
+                <article class="resource-card">
+                    <div class="resource-card-image">
+                        <img src="imagenes/CAV_fundacionHelgadeAlvear.webp" alt="Centro de Artes Visuales Fundación Helga de Alvear" style="width:100%; height:100%; object-fit: cover;">
+                    </div>
+                    <div class="resource-card-content">
+                        <h3 data-i18n="place-artcenter">Centro de Artes Visuales Fundación Helga de Alvear</h3>
+                        <p data-i18n="place-artcenter-desc">Arte contemporáneo en un espacio moderno excepcional...</p>
+                        <button class="add-to-list-btn" data-i18n="btn-add">➕ Añadir a mi lista</button>
+                    </div>
+                </article>
+
+                <article class="resource-card">
+                    <div class="resource-card-image">
+                        <img src="imagenes/granTeatro.webp" alt="Gran Teatro de Cáceres" style="width:100%; height:100%; object-fit: cover;">
+                    </div>
+                    <div class="resource-card-content">
+                        <h3 data-i18n="place-theater">Gran Teatro de Cáceres</h3>
+                        <p data-i18n="place-theater-desc">Programación de teatro, danza, música y artes escénicas...</p>
+                        <button class="add-to-list-btn" data-i18n="btn-add">➕ Añadir a mi lista</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="actividades">
+            <h2 data-i18n="section-activities-title">🎪 Actividades Recreativas</h2>
+            <p data-i18n="section-activities-desc">Eventos, rutas y experiencias únicas en Cáceres</p>
+            
+            <div class="resource-grid">
+                <article class="resource-card">
+                    <div class="resource-card-image">
+                        <img src="imagenes/womad.webp" alt="WOMAD Festival" style="width:100%; height:100%; object-fit: cover;">
+                    </div>
+                    <div class="resource-card-content">
+                        <h3>WOMAD Festival</h3>
+                        <p data-i18n="place-womad-desc">Festival internacional de música del mundo en mayo...</p>
+                        <button class="add-to-list-btn" data-i18n="btn-add">➕ Añadir a mi lista</button>
+                    </div>
+                </article>
+
+                <article class="resource-card">
+                    <div class="resource-card-image">
+                        <img src="imagenes/rutaVinos.webp" alt="Ruta de los Vinos de Cáceres" style="width:100%; height:100%; object-fit: cover;">
+                    </div>
+                    <div class="resource-card-content">
+                        <h3 data-i18n="place-wine">Ruta de los Vinos de Cáceres</h3>
+                        <p data-i18n="place-wine-desc">Descubre las bodegas y la gastronomía local extremeña...</p>
+                        <button class="add-to-list-btn" data-i18n="btn-add">➕ Añadir a mi lista</button>
+                    </div>
+                </article>
+
+                <article class="resource-card">
+                    <div class="resource-card-image">
+                        <img src="imagenes/visitaTeatralizada.webp" alt="Visita Teatralizada Nocturna" style="width:100%; height:100%; object-fit: cover;">
+                    </div>
+                    <div class="resource-card-content">
+                        <h3 data-i18n="place-tour">Visita Teatralizada Nocturna</h3>
+                        <p data-i18n="place-tour-desc">Recorrido por el casco antiguo con actores y leyendas...</p>
+                        <button class="add-to-list-btn" data-i18n="btn-add">➕ Añadir a mi lista</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: MAPA INTERACTIVO -->
+        <section id="mapa-sitio">
+            <h2 data-i18n="map-title">🗺️ Mapa de Cáceres</h2>
+            <p data-i18n="map-subtitle">Encuentra todos los lugares turísticos en el mapa</p>
+            
+            <div style="background-color: #FFFFFF; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <div class="search-bar" style="margin-bottom: 1.5rem;">
+                    <input type="search" id="map-search" data-i18n-placeholder="map-search-placeholder" placeholder="🔍 Buscar lugar en el mapa..." style="width: 100%; max-width: 100%;">
+                </div>
+                
+                <div id="map-container" style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden; position: relative;">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48442.64524738434!2d-6.392844899999999!3d39.4753405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd15df855b8d8d0f%3A0x408fa8e00e1ce90!2sC%C3%A1ceres!5e0!3m2!1ses!2ses!4v1234567890" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+                
+                <div id="map-results" style="margin-top: 1.5rem; display: none;">
+                    <h4 style="margin-bottom: 1rem; color: #468284;" data-i18n="map-results-title">Resultados de búsqueda:</h4>
+                    <div id="results-list" style="display: flex; flex-direction: column; gap: 0.75rem;"></div>
+                </div>
+            </div>
+            
+            <div style="background-color: #FFFFFF; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <h3 data-i18n="map-places-title">Lugares destacados:</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                    <button onclick="searchMapLocation('Plaza Mayor Cáceres')" style="background-color: #F9F9F9; border: 2px solid #EEEEEE; padding: 0.75rem; border-radius: 8px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='#FF7F50'" onmouseout="this.style.borderColor='#EEEEEE'">
+                        📍 Plaza Mayor
+                    </button>
+                    <button onclick="searchMapLocation('Concatedral Santa María Cáceres')" style="background-color: #F9F9F9; border: 2px solid #EEEEEE; padding: 0.75rem; border-radius: 8px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='#FF7F50'" onmouseout="this.style.borderColor='#EEEEEE'">
+                        ⛪ Concatedral
+                    </button>
+                    <button onclick="searchMapLocation('Museo Cáceres')" style="background-color: #F9F9F9; border: 2px solid #EEEEEE; padding: 0.75rem; border-radius: 8px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='#FF7F50'" onmouseout="this.style.borderColor='#EEEEEE'">
+                        🏛️ Museo de Cáceres
+                    </button>
+                    <button onclick="searchMapLocation('Parque Nacional Monfragüe')" style="background-color: #F9F9F9; border: 2px solid #EEEEEE; padding: 0.75rem; border-radius: 8px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='#FF7F50'" onmouseout="this.style.borderColor='#EEEEEE'">
+                        🌳 Monfragüe
+                    </button>
+                    <button onclick="searchMapLocation('Gran Teatro Cáceres')" style="background-color: #F9F9F9; border: 2px solid #EEEEEE; padding: 0.75rem; border-radius: 8px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='#FF7F50'" onmouseout="this.style.borderColor='#EEEEEE'">
+                        🎭 Gran Teatro
+                    </button>
+                    <button onclick="searchMapLocation('Helga de Alvear Cáceres')" style="background-color: #F9F9F9; border: 2px solid #EEEEEE; padding: 0.75rem; border-radius: 8px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='#FF7F50'" onmouseout="this.style.borderColor='#EEEEEE'">
+                        🎨 Centro Helga de Alvear
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto">
+            <h2 data-i18n="contact-title">📞 Contacto e Información</h2>
+            
+            <div class="contact-info">
+                <h3 data-i18n="contact-office">Oficina de Turismo de Cáceres</h3>
+                <div class="contact-grid">
+                    <div>
+                        <h4 data-i18n="contact-address-title">📍 Dirección</h4>
+                        <p>Plaza Mayor, s/n<br>10003 Cáceres, España</p>
+                    </div>
+                    <div>
+                        <h4>📧 Email</h4>
+                        <p>turismo@ayto-caceres.es<br>info@turismocaceres.org</p>
+                    </div>
+                    <div>
+                        <h4 data-i18n="contact-phone-title">☎️ Teléfono</h4>
+                        <p data-i18n="contact-phone">+34 927 010 834<br>Horario: 10:00 - 14:00 / 17:00 - 20:00</p>
+                    </div>
+                    <div>
+                        <h4 data-i18n="contact-points-title">🏢 Puntos de Información</h4>
+                        <p>Plaza Mayor<br>Torre de Bujaco<br>Centro de Interpretación</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sugerencias">
+            <h2 data-i18n="suggestions-title">💡 Envíanos tus Sugerencias</h2>
+            <p data-i18n="suggestions-subtitle">Tu opinión nos ayuda a mejorar</p>
+            
+            <form id="suggestions-form">
+                <input type="text" name="nombre" id="form-name" data-i18n-placeholder="form-name-placeholder" placeholder="Tu nombre" required>
+                <input type="email" name="email" id="form-email" data-i18n-placeholder="form-email-placeholder" placeholder="Tu email" required>
+                <input type="text" name="asunto" id="form-subject" data-i18n-placeholder="form-subject-placeholder" placeholder="Asunto">
+                <textarea name="mensaje" rows="6" id="form-message" data-i18n-placeholder="form-message-placeholder" placeholder="Escribe tu sugerencia aquí..." required></textarea>
+                <button type="submit" data-i18n="btn-submit">Enviar Sugerencia</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p data-i18n="footer-copyright">&copy; 2025 Descubre Cáceres - Portal de Turismo de la Ciudad Patrimonio de la Humanidad</p>
+            <p data-i18n="footer-languages">Disponible en: Español | English | Français | Deutsch | Português</p>
+        </div>
+    </footer>
+
+    <script>
+        // Base de datos de lugares
+        const places = [
+            { name: 'Plaza Mayor', query: 'Plaza Mayor Cáceres', category: 'arquitectura' },
+            { name: 'Concatedral de Santa María', query: 'Concatedral Santa María Cáceres', category: 'arquitectura' },
+            { name: 'Palacio de las Veletas', query: 'Palacio Veletas Cáceres', category: 'arquitectura' },
+            { name: 'Parque Nacional de Monfragüe', query: 'Parque Nacional Monfragüe', category: 'naturaleza' },
+            { name: 'Parque del Príncipe', query: 'Parque Príncipe Cáceres', category: 'naturaleza' },
+            { name: 'Ribera del Marco', query: 'Ribera Marco Cáceres', category: 'naturaleza' },
+            { name: 'Museo de Cáceres', query: 'Museo Cáceres', category: 'cultura' },
+            { name: 'Centro Helga de Alvear', query: 'Helga de Alvear Cáceres', category: 'cultura' },
+            { name: 'Gran Teatro', query: 'Gran Teatro Cáceres', category: 'cultura' }
+        ];
+        
+        // Función de búsqueda en el mapa
+        function searchMapLocation(query) {
+            const mapContainer = document.getElementById('map-container');
+            const encodedQuery = encodeURIComponent(query);
+            mapContainer.innerHTML = `
+                <iframe 
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodedQuery}" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            `;
+        }
+        
+
+        // Event listener para la búsqueda
+        document.getElementById('map-search').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const resultsDiv = document.getElementById('map-results');
+            const resultsList = document.getElementById('results-list');
+            
+            if (searchTerm.length < 2) {
+                resultsDiv.style.display = 'none';
+                return;
+            }
+            
+            const filtered = places.filter(place => 
+                place.name.toLowerCase().includes(searchTerm)
+            );
+            
+            if (filtered.length > 0) {
+                resultsDiv.style.display = 'block';
+                resultsList.innerHTML = filtered.map(place => `
+                    <div onclick="searchMapLocation('${place.query}')" style="padding: 1rem; background-color: #F9F9F9; border-radius: 8px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.backgroundColor='#EEEEEE'" onmouseout="this.style.backgroundColor='#F9F9F9'">
+                        <strong>${place.name}</strong>
+                        <span style="color: #666; font-size: 0.875rem; margin-left: 0.5rem;">${place.category}</span>
+                    </div>
+                `).join('');
+            } else {
+                resultsDiv.style.display = 'block';
+                resultsList.innerHTML = '<p style="color: #666;">No se encontraron resultados</p>';
+            }
+        });
+
+        const translations = {
+            es: {
+                'logo-text': '🏛️ Descubre Cáceres',
+                'nav-home': 'Inicio',
+                'nav-architecture': 'Arquitectura',
+                'nav-nature': 'Naturaleza',
+                'nav-culture': 'Cultura',
+                'nav-activities': 'Actividades',
+                'nav-contact': 'Contacto',
+                'nav-sitemap': 'Mapa del Sitio',
+                'hero-title': 'Explora la Ciudad Patrimonio de la Humanidad',
+                'hero-subtitle': 'Descubre el Casco Antiguo, la naturaleza extremeña y la cultura cacereña',
+                'search-placeholder': '🔍 Buscar por nombre, categoría, ubicación...',
+                'section-architecture-title': '🏛️ Patrimonio Arquitectónico',
+                'section-architecture-desc': 'Descubre la Ciudad Monumental declarada Patrimonio de la Humanidad por la UNESCO',
+                'place-plaza-mayor': 'Plaza Mayor',
+                'place-plaza-mayor-desc': 'Corazón de la ciudad con los Arcos de la Estrella y Torre de Bujaco',
+                'place-cathedral': 'Concatedral de Santa María',
+                'place-cathedral-desc': 'Catedral del siglo XIII con impresionante arquitectura gótica',
+                'place-palace': 'Palacio de las Veletas',
+                'place-palace-desc': 'Sede del Museo de Cáceres con aljibe almohade del siglo XII',
+                'section-nature-title': '🌳 Espacios Naturales',
+                'section-nature-desc': 'Explora los parques naturales y entornos naturales de Cáceres',
+                'place-monfrague': 'Parque Nacional de Monfragüe',
+                'place-monfrague-desc': 'Reserva de la biosfera con increíble fauna y flora mediterránea',
+                'place-park': 'Parque del Príncipe',
+                'place-park-desc': 'Pulmón verde de la ciudad con zonas de paseo y recreo',
+                'place-river': 'Ribera del Marco',
+                'place-river-desc': 'Senda natural perfecta para senderismo y observación de aves',
+                'section-culture-title': '🎭 Espacios Culturales',
+                'section-culture-desc': 'Museos, centros culturales y galerías de arte cacereñas',
+                'place-museum': 'Museo de Cáceres',
+                'place-museum-desc': 'Colección arqueológica, etnográfica y de bellas artes',
+                'place-artcenter': 'Centro de Artes Visuales Fundación Helga de Alvear',
+                'place-artcenter-desc': 'Arte contemporáneo en un espacio moderno excepcional',
+                'place-theater': 'Gran Teatro de Cáceres',
+                'place-theater-desc': 'Programación de teatro, danza, música y artes escénicas',
+                'section-activities-title': '🎪 Actividades Recreativas',
+                'section-activities-desc': 'Eventos, rutas y experiencias únicas en Cáceres',
+                'place-womad-desc': 'Festival internacional de música del mundo en mayo',
+                'place-wine': 'Ruta de los Vinos de Cáceres',
+                'place-wine-desc': 'Descubre las bodegas y la gastronomía local extremeña',
+                'place-tour': 'Visita Teatralizada Nocturna',
+                'place-tour-desc': 'Recorrido por el casco antiguo con actores y leyendas',
+                'btn-add': '➕ Añadir a mi lista',
+                'contact-title': '📞 Contacto e Información',
+                'contact-office': 'Oficina de Turismo de Cáceres',
+                'contact-address-title': '📍 Dirección',
+                'contact-phone-title': '☎️ Teléfono',
+                'contact-phone': '+34 927 010 834<br>Horario: 10:00 - 14:00 / 17:00 - 20:00',
+                'contact-points-title': '🏢 Puntos de Información',
+                'suggestions-title': '💡 Envíanos tus Sugerencias',
+                'suggestions-subtitle': 'Tu opinión nos ayuda a mejorar',
+                'form-name-placeholder': 'Tu nombre',
+                'form-email-placeholder': 'Tu email',
+                'form-subject-placeholder': 'Asunto',
+                'form-message-placeholder': 'Escribe tu sugerencia aquí...',
+                'btn-submit': 'Enviar Sugerencia',
+                'footer-copyright': '© 2025 Descubre Cáceres - Portal de Turismo de la Ciudad Patrimonio de la Humanidad',
+                'footer-languages': 'Disponible en: Español | English | Français | Deutsch | Português',
+                'map-title': '🗺️ Mapa de Cáceres',
+                'map-subtitle': 'Encuentra todos los lugares turísticos en el mapa',
+                'map-search-placeholder': '🔍 Buscar lugar en el mapa...',
+                'map-results-title': 'Resultados de búsqueda:',
+                'map-places-title': 'Lugares destacados:'
+            },
+            en: {
+                'logo-text': '🏛️ Discover Cáceres',
+                'nav-home': 'Home',
+                'nav-architecture': 'Architecture',
+                'nav-nature': 'Nature',
+                'nav-culture': 'Culture',
+                'nav-activities': 'Activities',
+                'nav-contact': 'Contact',
+                'nav-sitemap': 'Site Map',
+                'hero-title': 'Explore the World Heritage City',
+                'hero-subtitle': 'Discover the Old Town, Extremadura nature and Cáceres culture',
+                'search-placeholder': '🔍 Search by name, category, location...',
+                'section-architecture-title': '🏛️ Architectural Heritage',
+                'section-architecture-desc': 'Discover the Monumental City declared World Heritage by UNESCO',
+                'place-plaza-mayor': 'Main Square',
+                'place-plaza-mayor-desc': 'Heart of the city with the Arcos de la Estrella and Bujaco Tower',
+                'place-cathedral': 'Co-Cathedral of Santa María',
+                'place-cathedral-desc': '13th century cathedral with impressive Gothic architecture',
+                'place-palace': 'Veletas Palace',
+                'place-palace-desc': 'Home of Cáceres Museum with 12th century Almohad cistern',
+                'section-nature-title': '🌳 Natural Spaces',
+                'section-nature-desc': 'Explore the natural parks and natural environments of Cáceres',
+                'place-monfrague': 'Monfragüe National Park',
+                'place-monfrague-desc': 'Biosphere reserve with incredible Mediterranean fauna and flora',
+                'place-park': 'Príncipe Park',
+                'place-park-desc': 'Green lung of the city with walking and recreation areas',
+                'place-river': 'Marco Riverside',
+                'place-river-desc': 'Natural path perfect for hiking and bird watching',
+                'section-culture-title': '🎭 Cultural Spaces',
+                'section-culture-desc': 'Museums, cultural centers and art galleries of Cáceres',
+                'place-museum': 'Cáceres Museum',
+                'place-museum-desc': 'Archaeological, ethnographic and fine arts collection',
+                'place-artcenter': 'Helga de Alvear Visual Arts Center',
+                'place-artcenter-desc': 'Contemporary art in an exceptional modern space',
+                'place-theater': 'Gran Teatro de Cáceres',
+                'place-theater-desc': 'Theater, dance, music and performing arts programming',
+                'section-activities-title': '🎪 Recreational Activities',
+                'section-activities-desc': 'Events, routes and unique experiences in Cáceres',
+                'place-womad-desc': 'International world music festival in May',
+                'place-wine': 'Cáceres Wine Route',
+                'place-wine-desc': 'Discover the wineries and local Extremadura gastronomy',
+                'place-tour': 'Theatrical Night Tour',
+                'place-tour-desc': 'Tour of the old town with actors and legends',
+                'btn-add': '➕ Add to my list',
+                'contact-title': '📞 Contact & Information',
+                'contact-office': 'Cáceres Tourism Office',
+                'contact-address-title': '📍 Address',
+                'contact-phone-title': '☎️ Phone',
+                'contact-phone': '+34 927 010 834<br>Hours: 10:00 - 14:00 / 17:00 - 20:00',
+                'contact-points-title': '🏢 Information Points',
+                'suggestions-title': '💡 Send us your Suggestions',
+                'suggestions-subtitle': 'Your opinion helps us improve',
+                'form-name-placeholder': 'Your name',
+                'form-email-placeholder': 'Your email',
+                'form-subject-placeholder': 'Subject',
+                'form-message-placeholder': 'Write your suggestion here...',
+                'btn-submit': 'Send Suggestion',
+                'footer-copyright': '© 2025 Discover Cáceres - World Heritage City Tourism Portal',
+                'footer-languages': 'Available in: Español | English | Français | Deutsch | Português',
+                'map-title': '🗺️ Map of Cáceres',
+                'map-subtitle': 'Find all tourist places on the map',
+                'map-search-placeholder': '🔍 Search place on map...',
+                'map-results-title': 'Search results:',
+                'map-places-title': 'Featured places:'
+            },
+            fr: {
+                'logo-text': '🏛️ Découvrir Cáceres',
+                'nav-home': 'Accueil',
+                'nav-architecture': 'Architecture',
+                'nav-nature': 'Nature',
+                'nav-culture': 'Culture',
+                'nav-activities': 'Activités',
+                'nav-contact': 'Contact',
+                'nav-sitemap': 'Plan du site',
+                'hero-title': 'Explorez la ville du patrimoine mondial',
+                'hero-subtitle': 'Découvrez la vieille ville, la nature d\'Estrémadure et la culture de Cáceres',
+                'search-placeholder': '🔍 Rechercher par nom, catégorie, lieu...',
+                'btn-add': '➕ Ajouter à ma liste',
+                'map-title': '🗺️ Carte de Cáceres',
+                'map-subtitle': 'Trouvez tous les lieux touristiques sur la carte',
+                'map-search-placeholder': '🔍 Rechercher un lieu sur la carte...',
+                'map-results-title': 'Résultats de recherche:',
+                'map-places-title': 'Lieux en vedette:'
+            },
+            de: {
+                'logo-text': '🏛️ Entdecke Cáceres',
+                'nav-home': 'Startseite',
+                'nav-architecture': 'Architektur',
+                'nav-nature': 'Natur',
+                'nav-culture': 'Kultur',
+                'nav-activities': 'Aktivitäten',
+                'nav-contact': 'Kontakt',
+                'nav-sitemap': 'Sitemap',
+                'hero-title': 'Erkunden Sie die Weltkulturerbestadt',
+                'hero-subtitle': 'Entdecken Sie die Altstadt, die Natur Extremaduras und die Kultur von Cáceres',
+                'search-placeholder': '🔍 Nach Name, Kategorie, Standort suchen...',
+                'btn-add': '➕ Zu meiner Liste hinzufügen',
+                'map-title': '🗺️ Karte von Cáceres',
+                'map-subtitle': 'Finden Sie alle touristischen Orte auf der Karte',
+                'map-search-placeholder': '🔍 Ort auf der Karte suchen...',
+                'map-results-title': 'Suchergebnisse:',
+                'map-places-title': 'Hervorgehobene Orte:'
+            },
+            pt: {
+                'logo-text': '🏛️ Descubra Cáceres',
+                'nav-home': 'Início',
+                'nav-architecture': 'Arquitetura',
+                'nav-nature': 'Natureza',
+                'nav-culture': 'Cultura',
+                'nav-activities': 'Atividades',
+                'nav-contact': 'Contato',
+                'nav-sitemap': 'Mapa do site',
+                'hero-title': 'Explore a Cidade Património Mundial',
+                'hero-subtitle': 'Descubra o Centro Histórico, a natureza extremenha e a cultura cacerense',
+                'search-placeholder': '🔍 Procurar por nome, categoria, localização...',
+                'btn-add': '➕ Adicionar à minha lista',
+                'map-title': '🗺️ Mapa de Cáceres',
+                'map-subtitle': 'Encontre todos os lugares turísticos no mapa',
+                'map-search-placeholder': '🔍 Procurar lugar no mapa...',
+                'map-results-title': 'Resultados da pesquisa:',
+                'map-places-title': 'Lugares em destaque:'
+            }
+        };
+
+        function changeLanguage(lang) {
+            const t = translations[lang];
+            if (!t) return;
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) {
+                    el.innerHTML = t[key];
+                }
+            });
+
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (t[key]) {
+                    el.placeholder = t[key];
+                }
+            });
+
+            document.documentElement.lang = lang;
+        }
+    </script> 
+</html>

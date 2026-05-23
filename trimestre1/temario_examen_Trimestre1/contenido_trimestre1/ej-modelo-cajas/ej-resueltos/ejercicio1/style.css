@@ -1,0 +1,35 @@
+body {
+    margin: 30px;
+}
+
+h1 {
+    border: 2px solid #00F;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+h2 {
+    border: 2px solid #AAA;
+    padding: 10px;
+}
+
+h2 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+ul {
+    border: 2px solid #0F0;
+    padding: 5px;
+    list-style-position: inside;
+}
+
+p {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+li {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}

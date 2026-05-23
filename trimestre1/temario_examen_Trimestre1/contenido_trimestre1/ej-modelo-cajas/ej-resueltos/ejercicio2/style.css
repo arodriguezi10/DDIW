@@ -1,0 +1,50 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 10px;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+h1 {
+    font-size: 1.5em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h3 {
+    font-size: 1.1em;
+}
+
+
+#divespecial {
+    background-color: rgb(206, 206, 206);
+    width: 175px;
+    border: 1px solid #a94442;
+    padding: 5px;
+    margin: 10px;
+}
+
+
+#pespecial {
+    width: 300px;
+    border: 2px dotted #3c763d;
+    padding: 5px;
+    margin: 10px;
+}
+
+
+#otroespecial {
+    background-color: #f5f5f5; 
+    width: 250px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: auto;
+}
+
+
+span {
+    background-color: #999;
+    color: white;
+    padding: 5px;
+    margin-right: 5px;
+    border: 1px solid #666;
+}

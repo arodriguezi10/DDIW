@@ -1,0 +1,29 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+#cabecera{
+    background-color: green;
+    width: 100%;
+    height: 13vh;
+}
+
+#lateral{
+    background-color: yellow;
+    width: 20%;
+    height: 75vh;
+    float: left;
+}
+
+#principal{
+    background-color: brown;;
+    width: 100%;
+    height: 75vh;
+}
+
+#pie{
+    background-color: red;
+    width: 100%;
+    height: 13vh;
+}

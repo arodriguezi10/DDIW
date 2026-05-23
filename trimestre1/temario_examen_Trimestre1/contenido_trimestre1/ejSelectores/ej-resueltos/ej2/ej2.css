@@ -1,0 +1,148 @@
+
+td {
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+tr:nth-child(1) td:nth-child(1) {
+    color: teal;
+}
+
+tr:nth-child(2) td:nth-child(1) {
+    color: red;
+}
+
+tr:nth-child(3) td:nth-child(1) {
+    color: blue;
+}
+
+tr:nth-child(4) td:nth-child(1) {
+    color: orange;
+}
+
+tr:nth-child(5) td:nth-child(1) {
+    color: purple;
+}
+
+tr:nth-child(6) td:nth-child(1) {
+    color: olive;
+}
+
+tr:nth-child(7) td:nth-child(1) {
+    color: fuchsia;
+}
+
+tr:nth-child(8) td:nth-child(1) {
+    color: green;
+}
+
+td:nth-child(2) {
+    background-color: red;
+}
+
+tr:nth-child(1) td:nth-child(2) {
+    color: teal;
+}
+
+tr:nth-child(2) td:nth-child(2) {
+    color: red;
+}
+
+tr:nth-child(3) td:nth-child(2) {
+    color: blue;
+}
+
+tr:nth-child(4) td:nth-child(2) {
+    color: orange;
+}
+
+tr:nth-child(5) td:nth-child(2) {
+    color: purple;
+}
+
+tr:nth-child(6) td:nth-child(2) {
+    color: olive;
+}
+
+tr:nth-child(7) td:nth-child(2) {
+    color: fuchsia;
+}
+
+tr:nth-child(8) td:nth-child(2) {
+    color: green;
+}
+
+td:nth-child(3) {
+    background-color: green;
+}
+
+tr:nth-child(1) td:nth-child(3) {
+    color: teal;
+}
+
+tr:nth-child(2) td:nth-child(3) {
+    color: red;
+}
+
+tr:nth-child(3) td:nth-child(3) {
+    color: blue;
+}
+
+tr:nth-child(4) td:nth-child(3) {
+    color: orange;
+}
+
+tr:nth-child(5) td:nth-child(3) {
+    color: purple;
+}
+
+tr:nth-child(6) td:nth-child(3) {
+    color: olive;
+}
+
+tr:nth-child(7) td:nth-child(3) {
+    color: fuchsia;
+}
+
+tr:nth-child(8) td:nth-child(3) {
+    color: green;
+}
+
+
+td:nth-child(4) {
+    background-color: blue;
+}
+
+tr:nth-child(1) td:nth-child(4) {
+    color: teal;
+}
+
+tr:nth-child(2) td:nth-child(4) {
+    color: red;
+}
+
+tr:nth-child(3) td:nth-child(4) {
+    color: blue;
+}
+
+tr:nth-child(4) td:nth-child(4) {
+    color: orange;
+}
+
+tr:nth-child(5) td:nth-child(4) {
+    color: purple;
+}
+
+tr:nth-child(6) td:nth-child(4) {
+    color: olive;
+}
+
+tr:nth-child(7) td:nth-child(4) {
+    color: fuchsia;
+}
+
+tr:nth-child(8) td:nth-child(4) {
+    color: green;
+}
+

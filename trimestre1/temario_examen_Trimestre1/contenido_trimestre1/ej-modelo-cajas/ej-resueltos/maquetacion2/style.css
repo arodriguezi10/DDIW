@@ -1,0 +1,31 @@
+#cabecera{
+    background-color: red;
+    width: 100%;
+    height: 25vh;
+
+}
+
+
+#lateral{
+    background-color: yellow;
+    width: 15%;
+    height: 30vh;
+    float: left;
+}
+
+
+#principal{
+    background-color: gainsboro;;
+    width: 65%;
+    height: 32vh;
+    margin-left: 15%;
+    margin-top: 0%;
+}
+
+#pie{
+    background-color: aquamarine;
+    width: 100%;
+    margin-top: 1%;
+    height: 25vh;
+
+}

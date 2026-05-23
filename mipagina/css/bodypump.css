@@ -1,0 +1,188 @@
+body{
+    margin: 0;
+}
+.flex-container{
+    display: flex;
+}
+/*INFORMACIÓN*/
+.flex-container .negro{
+    background-color: #171718;
+    width: 50%;
+    height: 100vh;
+}
+/*ICONO*/
+.flex-container .negro #span4{
+    font-size: 3rem;
+    color: white;
+    font-weight: bold;
+    position: fixed;
+    left: 25%;
+    top: 15%;
+}
+/*NOMBRE*/
+.flex-container .negro .nombre{
+    font-size: 2rem;
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;  
+    font-weight: bold; 
+    letter-spacing: 5px;  
+    position:fixed;
+    left: 19.5%;
+    top: 23%;
+}
+/*TEXTO*/
+.flex-container .negro .texto{
+    font-size: 1.3rem;
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: justify;
+    position:fixed;
+    left: 5%;
+    right: 55%;
+    top: 33%;
+    word-spacing: 5px;
+}
+.flex-container .negro .frase{
+    font-size: 1.3rem;
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: justify;
+    position:fixed;
+    left: 5%;
+    right: 55%;
+    top: 60%;
+    word-spacing: 5px;
+}
+/*BOTÓN*/
+.cont .cont-boton{
+    width: 100%;
+    height: 55px;
+}
+.cont-boton .boton #button1{
+    background-color: gray;
+    color: white;
+    width: 5%;
+    height: 20px;
+    border-radius: 15px;
+    padding: 20px 20px;
+    font-size: 13.5px;
+    text-decoration: none;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif; 
+    position:fixed;
+    left: 22.3%;
+    top: 70%;
+    box-shadow: 2px 2px 5px  red; 
+}
+.cont-boton .boton #button1:hover{
+    background-color: red;
+}
+/*TIEMPO, BENEFICIOS, EQUIPAMIENTO Y HORAIOS*/
+.flex-container .blanco{
+    background-color: white;
+    width: 50%;
+    height: 100vh;
+}
+/*TIEMPO*/
+.flex-container .blanco span{
+    font-size: 3rem;
+    color: black;
+    font-weight: bold;
+    position: fixed;
+    left: 55%;
+    top: 10%
+}
+.flex-container .blanco .titulo1{
+    font-size: 2rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    position:fixed;
+    left: 60%;
+    top: 10.7%;
+}
+.flex-container .blanco .descripcion1{
+    font-size: 1.3rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    position: fixed;
+    left: 60%;
+    top: 18%;
+}
+/*BENEFICIOS*/
+.flex-container .blanco  #span2{
+    font-size: 3rem;
+    color: black;
+    font-weight: bold;
+    position: fixed;
+    left: 55%;
+    top: 28%;
+}
+.flex-container .blanco .titulo2{
+    font-size: 2rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    position:fixed;
+    left: 60%;
+    top: 28.7%;
+}
+.flex-container .blanco .descripcion2{
+    font-size: 1.3rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: justify;
+    font-weight: normal;
+    position: fixed;
+    right: 10%;
+    left: 60%;
+    top: 38%;    
+}
+/*EQUIPAMIENTO*/
+.flex-container .blanco #span3{
+    font-size: 3rem;
+    color: black;
+    font-weight: bold;
+    position: fixed;
+    left: 55%;
+    top: 53%;
+}
+.flex-container .blanco .titulo3{
+    font-size: 2rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    position:fixed;
+    left: 60%;
+    top: 53.7%;
+}
+.flex-container .blanco .descripcion3{
+    font-size: 1.3rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: justify;
+    font-weight: normal;
+    position: fixed;
+    right: 10%;
+    left: 60%;
+    top: 61%;    
+}
+/*HORARIOS*/
+.flex-container .blanco #span4{
+    font-size: 3rem;
+    color: black;
+    font-weight: bold;
+    position: fixed;
+    left: 55%;
+    top: 75%;
+}
+.flex-container .blanco .titulo4{
+    font-size: 2rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    position:fixed;
+    left: 60%;
+    top: 75.7%;
+}
+.flex-container .blanco .descripcion4{
+    font-size: 1.3rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: normal;
+    position: fixed;
+    left: 60%;
+    top: 83%;
+}
